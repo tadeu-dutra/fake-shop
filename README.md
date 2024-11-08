@@ -66,10 +66,12 @@ Use AWS CloudFormation to create and manage resources with templates.
 ### 5. Perform CLI Actions
 
 1. Set your AWS Access Key by running:
-   ```bash
+```bash
    aws configure
+```
 2. Run the commands below:
-   ```bash
+```bash
 aws eks update-kubeconfig --name eks-cluster-k8s
 kubectl apply -f k8s/deployment.yaml
 kubectl get service
+```
