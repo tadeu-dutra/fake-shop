@@ -18,11 +18,11 @@ spec:
           ports:
             - containerPort: 5432
           env:
-            - name: POSTGRES_PASSWORD
+            - name: POSTGRES_DB
               value: fakeshop
             - name: POSTGRES_USER
               value: fakeshop
-            - name: POSTGRES_DB
+            - name: POSTGRES_PASSWORD
               value: Pg1234
 ---
 apiVersion: v1
