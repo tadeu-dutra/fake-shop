@@ -17,6 +17,16 @@ jobs:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+        - name: Build and push
+          uses: docker/build-push-action@v6
+          with:
+            context: ./src
+            push: true
+            file: ./src/Dockerfile
+            tags: |
+              tadeuaugusto/fake-shop:latest
+              tadeuaugusto/fake-shop:v${{ github.run_number }}
+
         - name: Docker Hub Authentication
           run: echo "Running Docker Login command"
         - name: Docker Image Build
