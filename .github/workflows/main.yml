@@ -27,12 +27,6 @@ jobs:
               tadeuaugusto/fake-shop:latest
               tadeuaugusto/fake-shop:v${{ github.run_number }}
 
-        - name: Docker Hub Authentication
-          run: echo "Running Docker Login command"
-        - name: Docker Image Build
-          run: echo "Running Docker Build command"
-        - name: Docker Image Push
-          run: echo "Push Docker Image"
     cd:
       runs-on: ubuntu-latest
       needs: [ci]
