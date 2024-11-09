@@ -41,9 +41,9 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-2
 
-        - name: 
-          run: echo "Running command aws configure"
         - name: Kubectl Configuration
-          run: echo "Running command aws eks update-kubeconfig"
+          run: aws eks update-kubeconfig --name eks-cluster-k8s
+
+
         - name: Deploy Manifests on Kubernetes
           run: echo "Runnning command kubectl apply"
