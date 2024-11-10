@@ -46,7 +46,7 @@ jobs:
             aws-region: us-east-1
 
         - name: Kubectl Configuration
-          run: aws eks update-kubeconfig --name eks-cluster-k8s
+          run: aws eks update-kubeconfig --name eks-cluster-k8s-tadeu
 
         - name: Deploy Manifests on Kubernetes
           uses: Azure/k8s-deploy@v5
