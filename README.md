@@ -1,7 +1,17 @@
-# fake-shop
+# Fake Shop
 
 This repository is forked from the [sample project](https://github.com/KubeDev/fake-shop) shared in the Cloud & DevOps Immersion program. Fake Shop is an ecommerce application developed in Python, and the challenge is to perform its deployment in a Kubernetes cluster. 
 
+## Table of Contents
+
+- [AWS Infrastructure Setup Guide for App Deployment](#aws-nfrastructure-setup-guide-for-app-deployment)
+- [Environment Setup](#environment-setup)
+- [Container Creation and Testing](#container-creation-and-testing)
+- [How to Use](#how-to-use)
+- [Technologies Used](#technologies-used)
+- [Contributions](#contributions)
+- [License](#license)
+- 
 # AWS Infrastructure Setup Guide for App Deployment
 
 This guide will help you create the AWS infrastructure needed to deploy the application on a Kubernetes Cluster. If you have any questions during the process, please feel free to reach out.
