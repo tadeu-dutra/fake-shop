@@ -1,6 +1,6 @@
 # Fake Shop
 
-This repository is forked from the [sample project](https://github.com/KubeDev/fake-shop) shared in the Cloud & DevOps Immersion program. Fake Shop is an ecommerce application developed in Python, and the challenge is to perform its deployment in a Kubernetes cluster. 
+This repository is forked from the [sample project](https://github.com/KubeDev/fake-shop) shared in the Cloud & DevOps Immersion program. Fake Shop is an ecommerce application developed in Python, and the challenge involves deploying it on Amazon EKS. 
 
 ## Table of Contents
 
