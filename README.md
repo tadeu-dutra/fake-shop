@@ -89,5 +89,6 @@ Use AWS CloudFormation to create and manage resources with templates.
 ```bash
 aws eks update-kubeconfig --name eks-cluster-k8s
 kubectl apply -f k8s/deployment.yaml
+kubectl apply -f prometheus/deployment.yaml
 kubectl get service
 ```
