@@ -4,14 +4,18 @@ This repository is forked from the [sample project](https://github.com/KubeDev/f
 
 ## Table of Contents
 
-- [AWS Infrastructure Setup Guide for App Deployment](#aws-nfrastructure-setup-guide-for-app-deployment)
-- [Environment Setup](#environment-setup)
-- [Container Creation and Testing](#container-creation-and-testing)
-- [How to Use](#how-to-use)
-- [Technologies Used](#technologies-used)
-- [Contributions](#contributions)
-- [License](#license)
-- 
+- [AWS Infrastructure Setup Guide for App Deployment](#aws-infrastructure-setup-guide-for-app-deployment)
+  - [Prerequisites](#prerequisites)
+  - [Steps to Create AWS Infrastructure](#steps-to-create-aws-infrastructure)
+    - [1. Create IAM Roles](#1-create-iam-roles)
+      - [Role 1: EKS Cluster Role](#role-1-eks-cluster-role)
+      - [Role 2: EC2 Worker Node Role](#role-2-ec2-worker-node-role)
+    - [2. Configure the Network Infrastructure](#2-configure-the-network-infrastructure)
+    - [3. Create the Kubernetes Cluster](#3-create-the-kubernetes-cluster)
+    - [4. Add Worker Node Groups to the Kubernetes Cluster](#4-add-worker-node-groups-to-the-kubernetes-cluster)
+    - [5. Perform CLI Actions](#5-perform-cli-actions)
+   
+
 # AWS Infrastructure Setup Guide for App Deployment
 
 This guide will help you create the AWS infrastructure needed to deploy the application on a Kubernetes Cluster. If you have any questions during the process, please feel free to reach out.
