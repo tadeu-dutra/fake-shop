@@ -122,29 +122,66 @@ The `cd` job handles the deployment to a Kubernetes cluster. It depends on the s
 3. **Kubectl Configuration**: Configures `kubectl` to interact with the specified EKS (Elastic Kubernetes Service) cluster.
 4. **Deploy Manifests on Kubernetes**: Utilizes `Azure/k8s-deploy` to deploy the specified Kubernetes manifests, which includes the Docker image built in the `ci` job.
 
-## Integration with Prometheus and Grafana
+## Setting Up Prometheus and Grafana
 
-This project integrates with **Prometheus** for monitoring and **Grafana** for visualization of metrics.
+To set up Prometheus and Grafana in your project, follow the steps below:
 
-#### Prometheus
+### Step 1: Update Kubernetes Deployment
 
-Prometheus is used to collect metrics from the application and services. It scrapes metrics at specified intervals, storing them in a time-series database. The application exposes metrics through an endpoint, which Prometheus configures to scrape.
+Update your `k8s/deployment.yaml` file with the following content to enable Prometheus scraping:
 
-#### Grafana: 
+```yaml
+spec:
+  selector:
+    matchLabels:
+      app: fakeshop
+template:
+  metadata:
+    annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/port: '5000'
+      prometheus.io/path: '/metrics'
+```
 
-Grafana is used to visualize the metrics collected by Prometheus. A Grafana  is used to provide real-time insights into key performance indicators (KPIs). 
+### Step 2: Apply the Deployment
 
-### Setup
+```bash
+kubectl apply -f k8s/deployment.yaml
+```
 
-To set up Prometheus and Grafana, ensure the following:
+### Step 3: Verify Deployments
 
-1. **Prometheus** is configured to scrape metrics from your application endpoint.
-2. **Grafana** is connected to your Prometheus data source. To log in the dashboard one must to:
-  . user: admin
-  . password: run the command below..
-   ```bash
-  $ kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
-  ```
-4. Import this [dashboard](https://github.com/tadeu-dutra/fake-shop/blob/main/prometheus/dashboard.json) to visualize the metrics.
+To check the status of your deployments and services, run:
+
+```bash
+kubectl get all
+```
+
+### Step 4: Access Grafana
+
+Access the Grafana dashboard by visiting the URL associated with the EXTERNAL-IP of the service/grafana.
+
+**Login Credentials**
+User: admin
+Password: Retrieve the password using the following command:
+```bash
+kubectl get secret --namespace default grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+### Step 5: Configure Prometheus Data Source in Grafana
+
+In the Grafana dashboard, navigate to **Home -> Data Sources**.
+
+Search for `Prometheus` and enter the following in the `Prometheus server URL` field:
+
+```bash
+http://prometheus-server
+```
+
+### Step 6: Import Dashboard
+To import the pre-configured dashboard:
+
+Go to **Home -> Dashboard -> New -> Import**.
+Upload the `[dashboard](https://github.com/tadeu-dutra/fake-shop/blob/main/prometheus/dashboard.json)`.
 
 For more detailed setup instructions, refer to the [Prometheus](https://prometheus.io/docs/introduction/overview/) and [Grafana](https://grafana.com/docs/grafana/latest/getting-started/getting-started/) documentation.
